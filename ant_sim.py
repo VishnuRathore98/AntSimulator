@@ -1,4 +1,6 @@
+import random
 import pygame
+import math
 import sys
 
 pygame.init()
@@ -6,14 +8,16 @@ pygame.init()
 WIDTH = 800
 HEIGHT = 600
 
-ant_x = 100
-ant_y = 300
-
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 pygame.display.set_caption("Ant Simulator")
 
 clock = pygame.time.Clock()
+
+ant_x = WIDTH // 2
+ant_y = HEIGHT // 2
+ant_angle = random.uniform(0, 2 * math.pi)
+ant_speed = 2
 
 running = True
 
@@ -24,11 +28,19 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    ant_x += 2
+    ant_angle += random.uniform(-0.1, 0.1)
+
+    ant_x += math.cos(ant_angle) * ant_speed
+    ant_y += math.sin(ant_angle) * ant_speed
+
+    if ant_x < 0 or ant_x > WIDTH:
+        ant_angle = math.pi - ant_angle
+    if ant_y < 0 or ant_y > HEIGHT:
+        ant_angle = -ant_angle
 
     screen.fill((0, 0, 0))
 
-    pygame.draw.circle(screen, (255, 255, 255), (ant_x, ant_y), 5)
+    pygame.draw.circle(screen, (255, 255, 255), (int(ant_x), int(ant_y)), 5)
 
     pygame.display.flip()
 
