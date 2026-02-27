@@ -14,15 +14,42 @@ pygame.display.set_caption("Ant Simulator")
 
 clock = pygame.time.Clock()
 
-ant1_x = WIDTH // 2
-ant1_y = HEIGHT // 2
-ant1_angle = random.uniform(0, 2 * math.pi)
-ant1_speed = 2
 
-ant2_x = WIDTH // 2
-ant2_y = HEIGHT // 2
-ant2_angle = random.uniform(0, 2 * math.pi)
-ant2_speed = 2
+class Ant:
+    def __init__(
+        self,
+        ant_x=WIDTH // 2,
+        ant_y=HEIGHT // 2,
+        ant_angle=random.uniform(0, 2 * math.pi),
+        ant_speed=2,
+    ):
+        self.ant_x = ant_x
+        self.ant_y = ant_y
+        self.ant_angle = ant_angle
+        self.ant_speed = ant_speed
+
+    def update(self):
+        self.ant_angle += random.uniform(-0.1, 0.1)
+
+        self.ant_x += math.cos(self.ant_angle) * self.ant_speed
+        self.ant_y += math.sin(self.ant_angle) * self.ant_speed
+
+        if self.ant_x < 0 or self.ant_x > WIDTH:
+            self.ant_angle = math.pi - self.ant_angle
+        if self.ant_y < 0 or self.ant_y > HEIGHT:
+            self.ant_angle = -self.ant_angle
+
+    def draw(self, screen):
+        pygame.draw.circle(
+            screen,
+            (255, 255, 255),
+            (int(self.ant_x), int(self.ant_y)),
+            5,
+        )
+
+
+# Creating a colony of ants
+ants = [Ant() for i in range(10)]
 
 running = True
 
@@ -35,31 +62,9 @@ while running:
 
     screen.fill((0, 0, 0))
 
-    # ant 1
-    ant1_angle += random.uniform(-0.1, 0.1)
-
-    ant1_x += math.cos(ant1_angle) * ant1_speed
-    ant1_y += math.sin(ant1_angle) * ant1_speed
-
-    if ant1_x < 0 or ant1_x > WIDTH:
-        ant1_angle = math.pi - ant1_angle
-    if ant1_y < 0 or ant1_y > HEIGHT:
-        ant1_angle = -ant1_angle
-
-    pygame.draw.circle(screen, (255, 255, 255), (int(ant1_x), int(ant1_y)), 5)
-
-    # ant 2
-    ant2_angle += random.uniform(-0.1, 0.1)
-
-    ant2_x += math.cos(ant2_angle) * ant2_speed
-    ant2_y += math.sin(ant2_angle) * ant2_speed
-
-    if ant2_x < 0 or ant2_x > WIDTH:
-        ant2_angle = math.pi - ant2_angle
-    if ant2_y < 0 or ant2_y > HEIGHT:
-        ant2_angle = -ant2_angle
-
-    pygame.draw.circle(screen, (255, 255, 255), (int(ant2_x), int(ant2_y)), 5)
+    for ant in ants:
+        ant.update()
+        ant.draw(screen)
 
     pygame.display.flip()
 
