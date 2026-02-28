@@ -1,0 +1,20 @@
+<svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Crust -->
+  <polygon points="130,20 30,220 230,220"
+           fill="#d9a15b" stroke="#b97a3d" stroke-width="4"/>
+
+  <!-- Cheese -->
+  <polygon points="130,45 55,205 205,205"
+           fill="#ffd85c"/>
+
+  <!-- Pepperoni -->
+  <circle cx="130" cy="110" r="18" fill="#c0392b"/>
+  <circle cx="100" cy="160" r="16" fill="#c0392b"/>
+  <circle cx="160" cy="165" r="16" fill="#c0392b"/>
+
+  <!-- Cheese Drip -->
+  <path d="M120 205 Q125 230 135 205 Z"
+        fill="#ffd85c"/>
+
+</svg>

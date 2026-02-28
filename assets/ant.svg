@@ -1,0 +1,27 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Body -->
+  <ellipse cx="90" cy="110" rx="35" ry="25" fill="#2b2b2b"/>
+  <ellipse cx="150" cy="105" rx="30" ry="22" fill="#2b2b2b"/>
+  <ellipse cx="210" cy="100" rx="40" ry="30" fill="#2b2b2b"/>
+
+  <!-- Head -->
+  <circle cx="60" cy="105" r="22" fill="#2b2b2b"/>
+
+  <!-- Eyes -->
+  <circle cx="52" cy="98" r="4" fill="white"/>
+  <circle cx="52" cy="98" r="2" fill="black"/>
+
+  <!-- Antennae -->
+  <line x1="45" y1="85" x2="30" y2="65" stroke="#2b2b2b" stroke-width="3" stroke-linecap="round"/>
+  <line x1="75" y1="85" x2="90" y2="65" stroke="#2b2b2b" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Legs -->
+  <line x1="85" y1="130" x2="65" y2="160" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="105" y1="130" x2="95" y2="165" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="135" y1="125" x2="125" y2="165" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="165" y1="125" x2="175" y2="165" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="195" y1="130" x2="215" y2="160" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+  <line x1="215" y1="125" x2="245" y2="150" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+
+</svg>
