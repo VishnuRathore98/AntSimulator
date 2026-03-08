@@ -14,13 +14,6 @@ pygame.display.set_caption("Ant Simulator")
 
 clock = pygame.time.Clock()
 
-ant_svg_path = os.path.abspath("./assets/ant.svg")
-food_svg_path = os.path.abspath("./assets/food.svg")
-home_svg_path = os.path.abspath("./assets/home.svg")
-
-ant_svg = pygame.image.load(ant_svg_path)
-
-
 home = Home()
 
 # Creating multiple food items
